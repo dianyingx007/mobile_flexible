@@ -37,6 +37,15 @@
 	/*为html标签添加data-dpr属性*/
 	docEL.setAttribute('data-dpr',dpr);
 
+	/*为body设置默认字体大小*/
+	if (doc.readyState === 'complete') {
+		doc.body.style.fontSize = 12 * dpr + 'px';
+	}else {
+		doc.addEventListener('DOMContentLoaded',function(e){
+			doc.body.style.fontSize = 12 * dpr +'px';
+		},false);
+	}
+
 	/*没有meta标签时，自动添加标签*/
 	if (!metaEL) {
 		metaEL = doc.createElement('meta');
@@ -45,6 +54,7 @@
 		var headEL = doc.querySelector('head');
 		if (headEL) {
 			headEL.appendChild(metaEL);
+			//可以尝试改成doc.html.app.......
 		}else {
 			var wrap = doc.createElement('div');
 			wrap.appendChild(metaEL);
@@ -77,5 +87,6 @@
 			timeoutid = setTimeout(refreshRem,300);
 		}
 	},false);
+
 
 })(window);
