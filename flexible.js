@@ -37,5 +37,19 @@
 	/*为html标签添加data-dpr属性*/
 	docEL.setAttribute('data-dpr',dpr);
 
+	/*没有meta标签时，自动添加标签*/
+	if (!metaEL) {
+		metaEL = doc.createElement('meta');
+		metaEL.setAttribute('name','viewport');
+		metaEL.setAttribute('content','initial-scale='+scale+',maxinum-scale='+scale+',mininum-scale='+scale+',user-scalable=no');
+		var headEL = doc.querySelector('head');
+		if (headEL) {
+			headEL.appendChild(metaEL);
+		}else {
+			var wrap = doc.createElement('div');
+			wrap.appendChild(metaEL);
+			doc.write(wrap.innerHTML);
+		}
+	}
 
 })(window);
