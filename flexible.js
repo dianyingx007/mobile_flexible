@@ -51,5 +51,11 @@
 			doc.write(wrap.innerHTML);
 		}
 	}
+	/*函数：更新rem，并添加font-size属性到html标签*/
+	function refreshRem(){
+		var width = docEL.getBoundingClientRect().width;
+		var rem = width/10;
+		docEL.style.fontSize = rem +'px';
+	}
 
 })(window);
