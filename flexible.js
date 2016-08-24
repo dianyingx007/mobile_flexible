@@ -1,5 +1,5 @@
 ;(function(win){
-	//变量：
+	/*变量：*/
 	var doc = win.document;
 	var docEL = doc.documentElement;
 	var metaEL = doc.querySelector('meta[name="viewport"]');
@@ -7,7 +7,7 @@
 	var scale = 0;
 	var timeoutid;
 
-	//采用已有meta标签viewport设置
+	/*采用已有meta标签viewport设置*/
 	if (metaEL) {
 		var match = metaEL.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
 		if (match) {
@@ -16,8 +16,8 @@
 		}
 	}
 
-	//没有设置meta时，自动设置dpr和scale
-	//苹果手机按devicePixelRatio设置，最大为3；其余设备采用dpr=1
+	/*没有设置meta时，自动设置dpr和scale*/
+	/*苹果手机按devicePixelRatio设置，最大为3；其余设备采用dpr=1*/
 	if (!dpr) {
 		var isIphone = win.navigator.appVersion.match(/iphone/gi);
 		var devicePixelRatio = win.devicePixelRatio;
@@ -33,6 +33,9 @@
 		}
 		scale = 1/dpr;
 	}
+
+	/*为html标签添加data-dpr属性*/
+	docEL.setAttribute('data-dpr',dpr);
 
 
 })(window);
