@@ -70,6 +70,12 @@
 		timeoutid = setTimeout(refreshRem,300);
 	},false);
 
-	/**/
+	/*添加pageshow事件,当重新载入页面时,判断是否是缓存,如果是缓存,调用refreshRem*/
+	win.addEventListener('pageshow',function(e){
+		if (e.persisted) {
+			clearTimeout(timeoutid);
+			timeoutid = setTimeout(refreshRem,300);
+		}
+	},false);
 
 })(window);
