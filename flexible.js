@@ -13,6 +13,8 @@
 		if (match) {
 			scale = parseFloat(match[1]);
 			dpr = parseInt(1/scale);
+		}else {
+			metaEL= 0;
 		}
 	}
 
@@ -50,11 +52,10 @@
 	if (!metaEL) {
 		metaEL = doc.createElement('meta');
 		metaEL.setAttribute('name','viewport');
-		metaEL.setAttribute('content','initial-scale='+scale+',maxinum-scale='+scale+',mininum-scale='+scale+',user-scalable=no');
+		metaEL.setAttribute('content','initial-scale='+scale+', maximum-scale='+scale+', minimum-scale='+scale+', user-scalable=no');
 		var headEL = doc.querySelector('head');
 		if (headEL) {
 			headEL.appendChild(metaEL);
-			//可以尝试改成doc.html.app.......
 		}else {
 			var wrap = doc.createElement('div');
 			wrap.appendChild(metaEL);
@@ -65,7 +66,7 @@
 	/*函数：更新rem，并添加font-size属性到html标签*/
 	function refreshRem(){
 		/*getBoundingClientRect().width相当于物理像素*/
-		var width = docEL.getBoundingClientRect().width;
+		var width = win.innerWidth;
 		/*width / dpr > 540等于独立像素*/
 		if (width / dpr > 540) {
             width = 540 * dpr;
