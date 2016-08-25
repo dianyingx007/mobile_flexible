@@ -3,7 +3,9 @@
 ### 移动端适配方案
 
 ##v1.1
+
 **bug fixed:**
+
 修复：当有viewport属性的meta标签，但content没有initial-scale值时，适配失效
 
 ##v1.0
