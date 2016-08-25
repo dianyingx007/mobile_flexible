@@ -14,8 +14,8 @@
 
 3、动态设置html的font-size，即设置rem大小
 
--布局时，元素尺寸=设计稿标注尺寸/设计稿横向分辨率/10 （rem）
--html的font-size计算公式：font-size=deviceWidth/10
+- 布局时，元素尺寸=设计稿标注尺寸/设计稿横向分辨率/10 （rem）
+- html的font-size计算公式：font-size=deviceWidth/10
 
 #实际做法：
 
@@ -33,5 +33,5 @@
 6）定义refreshRem函数：更新rem，并添加font-size属性到html标签
 
 7）添加resize和pageshow事件，调用refreshRem()：
-   -当窗口大小发生变化，触发resize
-   -当重新载入页面时，判断是否是缓存，如果是缓存，执行refreshRem()
+   - 当窗口大小发生变化，触发resize
+   - 当重新载入页面时，判断是否是缓存，如果是缓存，执行refreshRem()
