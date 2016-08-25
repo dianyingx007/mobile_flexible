@@ -22,7 +22,7 @@
 1）采用原有meta标签设置像素比dpr和scale
 
 2）如果没有meta，根据设备设置缩放比
-	'苹果手机按devicePixelRatio设置，最大为3；其余设备采用dpr=1'
+   `苹果手机按devicePixelRatio设置，最大为3；其余设备采用dpr=1`
 
 3）如果没有meta[name="viewport"]，添加meta标签
 
